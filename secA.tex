@@ -1,0 +1,471 @@
+\chapter{可換環と体}
+{\small
+この付録では本書を理解するために必要となる可換環と体についての初歩を述べる．
+題材が抽象的であるので，できるだけ具体的な例を使って述べることにした．
+そのため，記述が長くなり，抽象代数学のよい面を殺してしまった感がある．
+この付録では，初学者が理解しにくい剰余環$R/J$について
+整数の場合から始めて詳しく述べた．そのため，可換環と体についての基本的事項に
+ついて十分述べることはできなかったが，この付録を読み終えた後，
+代数学の参考書をひもといていた駄々ければ，代数幾何学で必要となる
+可換環論とと体論について理解することは，
+さして難しくないと信じる．
+}
+\section{整数と合同式}
+
+整数の全体を以下$\Z$で記す．$2$以上の整数$n$を一つ固定する．
+整数$a,b$に対して$a-b$が$n$の倍数であるとき
+
+\[
+	a	\equiv	b	\quad	\pmod{n}
+\]
+と記し，$a$は$n$を法として$b$と\textbf{合同}(congruence)であるという．
+このとき，$b-a$も$n$の倍数であるので
+\[
+	b	\equiv	a	\quad	\pmod{n}
+\]
+が成り立つ．さらに，
+\[
+	b	\equiv	c	\pmod{n}
+\]
+であれば，$a-c=(a-b)+(b-c)$も$n$の倍数であるので
+\[
+	a	\equiv	c	\pmod{n}
+\]
+が成り立つ．
+
+さて，整数$a_1,a_2,b_1,b_2$に対して
+\begin{eqnarray*}
+	a_1	&	\equiv	b_1	\pmod{n}	\\
+	a_2	&	\equiv	b_2	\pmod{n}
+\end{eqnarray*}
+が成り立てば，
+\begin{eqnarray*}
+	a_1+a_2	&\equiv	b_1+b_2	\pmod{n}	\\
+	a_1-a_2	&\equiv	b_1-b_2	\pmod{n}	\\
+	a_1a_2	&\equiv	b_1b_2	\pmod{n}
+\end{eqnarray*}
+が成り立つ．なぜならば，$a_1-b_1$，$a_2-b_2$が$n$の倍数であれば，
+$(a_1+a_2)-(b_1+b_2)$，$a_1a_2-b_1b_2=a_1(a_2-b_2)+(a_1-b_1)b_2$も
+$n$の倍数であるからである．
+
+整数$a$に対して
+\[
+	\overline{a}	=	\{m	\in	\Z	\:|\:	m	\equiv	a	\pmod{n}	\}
+\]
+と定義して，$a$が定める$n$を法とする\textbf{剰余類}（residue	class）という．
+
+\補題{A.1}
+二つの整数
+\[
+	a	\equiv	b	\pmod{n}
+\]
+であれば，$a$，$b$が定める$n$を法とする剰余類は一致する．すなわち
+\[
+	\overline{a}	=	\overline{b}	.
+\]
+\証明
+$a	\equiv	b	\pmod{n}$であるので，$m	\equiv	a	\pmod{n}$であれば
+\[
+	m	\equiv	b	\pmod{n}
+\]
+である．したがって，$m	\in	\overline{a}$であれば$m	\in	\overline{b}$
+であることが分かり，
+\[
+	\overline{a}	\subset	\overline{b}
+\]
+が成り立つ．逆に$m	\in	\overline{b}$であれば，$m	\equiv	b	\pmod{n}$であり，
+$b	\equiv	a	\pmod{n}$であるので，
+\[
+	m	\equiv	a	\pmod{n}
+\]
+である．したがって
+\[
+	\overline{b}	\subset	\overline{a}
+\]
+となり，$\overline{a}	=	\overline{b}$であることが示された．
+\■
+
+\補題{A.2}
+二つの整数$a$，$b$に対して，$a$，$b$に対して，$a$，$b$の定める
+$n$を法とする剰余類に共通の整数が含まれる，すなわち
+\[
+	\overline{a}	\cap	\overline{b}	\ne	\varnothing
+\]
+であれば
+\[
+	\overline{a}	=	\overline{b}
+\]
+であり，このとき
+\[
+	a	\equiv	b	\pmod{n}
+\]
+が成立する．
+
+\証明
+\[
+	c	\in	\overline{a}	\cap	\overline{b}
+\]
+とすると，
+\begin{eqnarray*}
+	c	\equiv	a	\pmod{n}	\\
+	c	\equiv	b	\pmod{n}	\\
+\end{eqnarray*}
+である．したがって
+\[
+	a	\equiv	b	\pmod{n}
+\]
+となり，補題A.1より
+\[
+	\overline{a}	=	\overline{b}
+\]
+が成立する．
+\■
+
+補題A.2より．整数の全体を互いに共通部分を持たない$n$を法とする剰余類
+に分けることができることが分かる．相異なる剰余類の全体を
+$\Z/(n)$と記す．任意の整数を$n$で割ると，
+その余りは，$0,1,2,\cdots	,	n-1$のいずれかであるので
+\[
+	\Z/(n)	=	\{	\overline{0},\overline{1},\cdots	,	\overline{n-1}	\}
+\]
+であることが分かる．たとえば，
+\[
+  \Z /(2) = \{ \overline{0},\overline{1} \}
+\]
+である．
+
+\定義{A.1}
+$\Z/(n)$の2元$\overline{a}$，$\overline{b}$に対して，和$\overline{a}+\overline{b}$および
+積$\overline{a}	\cdot	\overline{b}$
+\begin{eqnarray*}
+	\overline{a}+\overline{b}	=	\overline{a+b}	\\
+	\overline{a}	\cdot	\overline{b}	=	\overline{ab}	\\
+\end{eqnarray*}
+と定義する．
+\□
+
+もし$\overline{a_1}=\overline{a_2}$，$\overline{b_1}=\overline{b_2}$であれば，
+補題A.2より
+\[
+	a_1	\equiv	a_2	\pmod{n},\quad	b_1	\equiv	b_2	\pmod{n}
+\]
+が成り立ち，したがって
+\begin{eqnarray*}
+	a_1+b_1	&\equiv	a_2+b_2	\pmod{n}	\\
+	a_1b_1	&\equiv	a_2b_2	\pmod{n}	\\
+\end{eqnarray*}
+が成り立つ．したがって補題A.1より
+\begin{eqnarray*}
+	\overline{a_1+b_1}	&=	\overline{a_2+b_2}	\\
+	\overline{a_1b_1}		&=	\overline{a_2b_2}		\\
+\end{eqnarray*}
+が成り立つことが分かる．これは，定義A.1で$\overline{a}+\overline{b}$，
+$\overline{a}\cdot\overline{b}$は$n$を法とする剰余類
+$\overline{a}\cdot\overline{b}$から一意に定まることを意味し，
+$\Z/(n)$に和と積が定義できることを示している．
+
+\例{A.1}
+$n=5$とする．$Z/(5)$での和と積の計算例を示そう．
+\begin{eqnarray*}
+	\overline{3}+\overline{4}=\overline{7}=\overline{2},&\quad	&\overline{2}+\overline{3}=\overline{5}=\overline{0}		\\
+	\overline{4}+\overline{4}=\overline{8}=\overline{3},&\quad	&\overline{6}+\overline{7}=\overline{13}=\overline{3}	\\
+	\overline{3}\cdot\overline{4}=\overline{12}=\overline{2},&\quad	&\overline{3}\cdot\overline{2}=\overline{6}=\overline{1}	\\
+	\overline{4}\cdot\overline{4}=\overline{16}=\overline{1},&\quad	&\overline{6}\cdot\overline{7}=\overline{42}=\overline{2}
+\end{eqnarray*}
+\□
+
+定義A.1より，$\Z/(n)$の任意の元$\overline{a}$に対して
+\begin{eqnarray*}
+	\overline{a}+\overline{0}			&=\overline{a+0}=\overline{a}	\\
+	\overline{a}\cdot\overline{1}	&=\overline{a\cdot	1}=\overline{a}	\\
+\end{eqnarray*}
+が成り立ち，$\overline{0}$は通常の$0$のように，$\overline{1}$は通常の$1$のように振舞うことが
+分かる．
+$\Z/(n)$の和と積に関しては，次に性質を持つことが分かる．
+
+\定理{A.1}定義A.1で定めた$\Z/(n)$の和と積は以下の性質を持つ．
+
+\begin{list}{}{}
+	\item	Ⅰ　加法の性質
+				\begin{list}{}{}
+					\item	（ⅰ）（可換性）$\Z/(n)$の任意の2元$\overline{a}$，$\overline{b}$に対して
+											\[
+													\overline{a}+\overline{b}=\overline{b}+\overline{a}.
+											\]
+					\item	（ⅱ）（結合律）$\Z/(n)$の任意の3元$\overline{a}$，$\overline{b}$，$\overline{c}$に対して
+											\[
+													(\overline{a}+\overline{b})+\overline{c}=\overline{a}+(\overline{b}+\overline{c}).
+											\]
+					\item	（ⅲ）（零元の存在）$\Z/(n)$の任意の元$\overline{a}$に対して
+											\[
+													\overline{a}+\overline{0}=\overline{a}
+											\]
+											が成り立つ．（$\overline{0}$を$\Z/(n)$の零元という．）
+					\item	（ⅳ）（加法に関する逆元の存在）$\Z/(n)$の任意の元$\overline{a}$に対して
+											\[
+													\overline{a}+\overline{b}=\overline{0}
+											\]
+											を満たす$\Z/(n)$の逆元$\overline{b}$が存在する．
+											（$\overline{b}$を$-\overline{a}$と記す．）
+				\end{list}
+	\item	Ⅱ　乗法の性質
+				\begin{list}{}{}
+					\item	（ⅰ）（可換性）$\Z/(n)$の任意の2元$\overline{a}$，$\overline{b}$に対して
+											\[
+													\overline{a}\cdot\overline{b}=\overline{b}\cdot\overline{a}.
+											\]
+					\item	（ⅱ）（結合律）$\Z/(n)$の任意の3元$\overline{a}$，$\overline{b}$，$\overline{c}$に対して
+											\[
+													(\overline{a}\cdot\overline{b})\cdot\overline{c}=\overline{a}\cdot(\overline{b}\cdot\overline{c}).
+											\]
+					\item	（ⅲ）（単位元の存在）$\Z/(n)$の任意の元$\overline{a}$に対して
+											\[
+													\overline{a}\cdot\overline{1}=\overline{a}
+											\]
+											が成り立つ．（$\overline{1}$を$\Z/(n)$の単位元という．）
+				\end{list}
+	\item	Ⅲ　分配律
+	$\Z/(n)$の3元$\overline{a}$，$\overline{b}$，$\overline{c}$に対して
+	\[
+		\overline{a}\cdot(\overline{b}+\overline{c})=\overline{a}\cdot\overline{b}+\overline{a}\cdot\overline{c}
+	\]
+	が成り立つ．
+\end{list}	
+\□
+
+証明は定義A.1より明らかであろう．たとえば，
+\[
+	\overline{a}+\overline{b}	=	\overline{a+b}
+														=	\overline{b+a}
+														=	\overline{b}+\overline{a}
+\]
+よりⅠ（ⅰ）の可換性が，
+\[
+	(\overline{a}+\overline{b})	+	\overline{c}	=	\overline{a+b}+\overline{c}
+																							=	\overline{(a+b)+c}
+																							=	\overline{a+(b+c)}
+																							=	\overline{a}+\overline{b+c}
+																							=	\overline{a}+(\overline{b}+\overline{c})
+\]
+よりⅠ（ⅱ）の結合律が示される．また，加法に関する逆元の存在Ⅰ（ⅳ）は
+\[
+	-\overline{a}	=	\overline{-a}
+\]
+とすればよいことが分かる．なぜならば
+\[
+	\overline{a}+\overline{-a}=\overline{a+(-a)}=\overline{a-a}=\overline{0}
+\]
+が成り立つからである．またⅢの分配律は
+\[
+	\overline{a}\cdot(\overline{b}+\overline{c})=\overline{a}\cdot\overline{b+c}
+																							=\overline{a(b+c)}
+																							=\overline{ab+ac}
+																							=\overline{ab}+\overline{ac}
+																							=\overline{a}\cdot\overline{b}+\overline{a}\cdot\overline{c}
+\]
+として示すことができる．
+
+以上の証明で本質的に使ったことは，整数の全体$\Z$もⅠ（ⅰ）～（ⅳ），Ⅱ（ⅰ）～（ⅲ），Ⅲ
+の性質を持つこと（証明は難しい）である．一般に，集合$R$に和と積が定義されていて
+定理A.1の性質Ⅰ（ⅰ）～（ⅳ），Ⅱ（ⅰ）～（ⅲ），Ⅲを満足するとき\textbf{可換環}
+（Commutative ring）という．一般の可換環のｔおきは，零元を$0$，単位元を$1$と記す．
+
+\例{A.2}（可換環$\Z[x]$）整数を係数とする多項式
+\[
+	f(x)=a_0+a_1x+a_2x^2+\cdots+a_mx^m,\quad	m	\geqq,	a_j	\in	\Z
+\]
+の全体$Z[x]$は多項式の通常の和，積に関して可換環になる．
+零元は$0$すなわち，$a_0=a_1=a_2=\cdots=a_m=0$である多項式，単位元は
+$1$，すなわち$a_0=1,a_1=a_2=\cdots=a_m=0$である多項式であり，
+$f(x)$の逆元$-f(x)$は
+\[
+	-a_0+(-a_1)x+(-a_2)x^2+\cdots+(-a_m)x^m
+\]
+で与えられる．
+\□
+
+さて，可換環$R$の2元$a,b$に対して，差$a-b$を
+\[
+	a-b=a+(-b)
+\]
+と定義する．$-b$は$b$の加法に関する逆元とする．これが通常の差の性質を持つことは
+\[
+	a-b=c
+\]
+とおくと，
+\[
+	c+b={a+(-b)}+b=a+{(-b)+b}=a+0=a
+\]
+が成り立つことから分かる．特に$R=\Z/(n)$であれば，
+\[
+	\overline{a}-\overline{b}	=	\overline{a}+(-\overline{b})=\overline{a+(-b)}
+														=	\overline{a-b}
+\]
+となり，最後の式で差を定義することもできる．
+
+さて，再び$\Z/(n)$を考察することにする．$\Z/(n)$の元$\overline{a}	\ne	\overline{0}$
+に対して
+\[
+	\overline{a}\cdot\overline{b}=\overline{1}
+\]
+となる元$\overline{b}$が存在するかどうかを考えてみよう．そのためには次の
+補題が必要となる．
+
+\補題{A.3}
+$m$と$n$とが互いに素，すなわち最大公約数が$1$であるような整数であれば
+\[
+	am+bn=1
+\]
+を満足する整数$a,b$が存在する．
+
+\証明
+Euclidの互除法を使って簡単に証明できるが，ここでは後に述べる
+イデアルの考え方（§A.2参照）を使った証明法を述べる．
+$\Z$の部分集合$(m,n)$を
+\[
+	(m,n)=\{\alpha	m	+	\beta	n	\:|\:	\alpha,\beta	\in	\Z	\}
+\]
+と定義する．整数$d,e$が$(m,n)$の元であれば
+\[
+	d+e	\in	(m,n)
+\]
+であり，また任意の整数$r$に対して
+\[
+	rd	\in	(m,n)
+\]
+が成り立つことに注意する．特に$d	\in	(m,n)$であれば
+$-d	\in	(m,n)$である．そこで，
+$(m,n)$に含まれる正の数のうち最小のものを$d_0$とする．
+$(m,n)$は$d_0$の倍数全体と一致することを示そう．
+任意の整数$r$に対して$rd_0	\in	(m,n)$であるので，
+$(m,n)$は$d_0$の倍数をすべて含んでいる．
+
+逆に，$(m,n)$に含まれる任意の元を$\delta$を任意にとる．
+$\delta$は$d_0$の倍数であることを示そう．
+$d=0$のときは明らかであるので$\delta	\ne	0$と仮定してよい．
+また$\delta	<	0$のときは$-delta$を考えることによって，
+$\delta$は正整数であると仮定してよい．$\delta$を
+$d_0$で割ったあまりを$\varepsilon$とおくと
+\[
+	\delta=ld_0+\varepsilon,\quad	0	\leqq	\varepsilon	<	d_0
+\]
+と表わせる．仮定より$\delta	\in	(m,n)$であり，$-ld_0	\in	(m,n)$であるので
+\[
+	\varepsilon=\delta+(-ld_0)	\in	(m,n)
+\]
+である．もし$\varepsilon>0$であれば，$(m,n)$に含まれる最小の正整数が$d_0$
+であるという仮定に反する．したがって$\varepsilon=0$でなければならず，
+$\delta$は$d_0$の倍数である．以上に議論によって
+\[
+	(m,n)=\{rd_0	\:|\:	r	\in	\Z\}
+\]
+であることが分かった．$d_0$の定義から
+\[
+	d_0=am+bn
+\]
+となる整数$a,b$が存在する．そこで，$d_0=1$であることを示そう．
+$m,n$は$(m,n)$の元であるので$d_0$の倍数である．したがって，
+$d_0	\geqq	2$であれば$d_0$は$m,n$の公約数である．ところが，
+$m,n$とは互いに素であると仮定したので，このようなことは起こりえない．
+したがって，$d_0=1$でなければならない．
+\■
+
+この補題から次の大切な結果を導くことができる．
+
+\系{A.1}
+整数$m$が$n$と互いに素であれば，$\Z/(n)$の中で
+\[
+	\overline{a}\cdot\overline{m}=\overline{1}
+\]
+を満たす剰余類$\overline{a}$がただ一つ存在する．
+
+\証明
+補題A.3より
+\[
+	am+bn=1
+\]
+を満たす整数$a,b$が存在する．したがって
+\[
+	am	\equiv	1	\pmod{n}
+\]
+であり，これにより
+\[	
+	\overline{a}\cdot\overline{m}	=	\overline{1}
+\]
+が成り立つ．他に
+\[
+	\overline{b}\cdot\overline{m}	=	\overline{1}
+\]
+が成り立つとすると（ここから唯一性の証明）
+\[
+	(\overline{a}-\overline{b})\cdot\overline{m}	=	\overline{0}
+\]
+となる．これは
+\[
+	(a-b)m=0	\pmod{n}
+\]
+を意味するが，$m$と$n$とは互いに素であるので，$a-b$は$n$の倍数でなければ
+ならない．これは$\overline{a}=\overline{b}$を意味する．
+\■
+
+\定理{A.2}
+$\Z/(n)$について，以下が成り立つ．
+\begin{list}{}{}
+	\item	（ⅰ）$n$が素数$p$のとき，$\Z/(p)$は定理A.1のⅠ（ⅰ）－（ⅳ），Ⅱ（ⅰ）－（ⅲ），Ⅲの
+							性質のほかにさらに次の性質を持つ．
+						\begin{list}{}{}
+							\item	Ⅱ（ⅳ）（乗法に関する逆元の存在）$\Z/(p)$の任意の元$\overline{a}	\ne	0$
+														に対して，
+														\[
+															\overline{a}\cdot\overline{b}=\overline{1}
+														\]
+														を満足する元$\overline{b}$がただ一つ存在する．
+														（この$\overline{b}$を$\overline{a}^{-1}$と記す．）
+						\end{list}
+	\item（ⅱ）$n$が合成数のときは$\Z/(n)$の中に
+						\[
+								\overline{a}	\ne	0,\quad	\overline{b}	\ne	0,\quad	\overline{a}\cdot\overline{b}=\overline{0}
+						\]
+						を満足する元$\overline{a},\overline{b}$が存在する．
+						（このような元$\overline{a},\overline{b}$を$\Z/(n)$の\textbf{零因子}という.)
+\end{list}
+
+\証明
+（ⅰ）$\overline{a}\ne\overline{0}$であれば，「$p$が素数」であることより，$a$と$p$とは互いに素である．
+したがって系A.1より$\overline{a}\cdot\overline{b}=\overline{1}$を満たす$\overline{b}$がただ一つ存在することが
+分かる．
+
+（ⅱ）$n$は合成数であるので
+\[
+	n=ml,\quad	m	\geqq	2,\quad	l	\geqq	2
+\]
+と書ける．このとき，$\Z/(n)$では
+\[
+	\overline{m}\ne	\overline{0},\quad	\overline{l}	\ne	\overline{0}
+\]
+である．しかし
+\[
+	\overline{m}\cdot\overline{l}=\overline{n}=\overline{0}
+\]
+である．
+　定理A.2より$Z/(n)$では加減乗除ができることが分かる．
+$\overline{a}	\ne	\overline{0}$であれば
+\[
+	\overline{c}	\div	\overline{a}	=	\overline{c}\cdot\overline{a}^{-1}
+\]
+と定義する．このとき
+\[
+	\overline{d}=\overline{c}	\cdot	\overline{a}^{-1}
+\]
+とおき，両辺に$\overline{a}$をかけると
+\[
+	\overline{d}\cdot\overline{a}	=(\overline{c}\cdot\overline{a}^{-1})\cdot\overline{a}
+																=\overline{c}\cdot(\overline{a}^{-1}\cdot\overline{a})
+																=\overline{c}\cdot(\overline{a}\cdot\overline{a}^{-1})
+																=\overline{c}\cdot\overline{1}
+																=\overline{c}
+\]
+となり，$\overline{c}	\div	\overline{a}	=	\overline{d}$と考えてよいことが分かる．
+定理A.1,定理A.2に現れた性質Ⅰ(ⅰ）－（ⅳ），Ⅱ（ⅰ）－（ⅳ），Ⅲを満足する集合を
+\textbf{体}（field）（正確には\textbf{可換体}（commutative field）という．
+体では加減乗除ができることが，上のようにして分かる．
