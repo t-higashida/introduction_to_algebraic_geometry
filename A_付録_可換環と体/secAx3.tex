@@ -1,0 +1,923 @@
+\section{可換環と体}
+
+これまでの考察で，可換環や体についての大体の感じはつまめたとおもうので，
+この節では可換環と体の一般論を簡潔に述べておこう．
+
+集合$R$の任意の2元の組$(a,b)$に対して，必ず$R$の元$c$が
+\[
+	(a,b)	\mapsto	c
+\]
+と対応するとき，$R$上に演算が定義されたという．通常，演算は記号を使って
+表わさせる．たとえば，$R$上に演算"$\cdot$"が定義されるということは，
+$R$の任意の2元の組$(a,b)$に対応する$R$の元$c$を$a\cdot	b$と記すことを
+意味する．このとき，一般には，$(a,b)$に対応する元$a	\cdot	b$と
+$(b,a)$に対応する元$b	\cdot	a$とは異なることに注意する．
+
+以上の準備のもとに可換体と可換環の定義を述べよう．
+
+\定義{A.4}
+集合$K$に和“$+$”および積“$\cdot$”と呼ばれる演算が定義され，
+以下の性質を持つとき，$K$(正確には$(K,+,\cdot)$)を\textbf{可換体}
+と呼ぶ．
+
+\begin{list}{}{}
+	\item	Ｉ加法の性質
+		\begin{list}{}{}
+			\item	（ⅰ）（可換性）$K$の任意の2元$a,b$に対して
+								\[
+										a+b=b+a
+								\]
+								が成り立つ．
+			\item	（ⅱ）（結合律）$K$の任意の3元$a,b,c$に対して
+								\[
+										a+(b+c)=(a+b)+c
+								\]
+								が成り立つ．
+			\item	（ⅲ）（零元の存在）$K$の任意の元$a$に対して
+								\[
+										a+0=a
+								\]
+								が常に成り立つような$K$の元$0$が存在する．
+								\footnote{零元$0$はただ一つ存在することを後に示す．}
+								($0$は零元と呼ばれる．)
+			\item	（ⅳ）（加法に関する逆元の存在）$K$の任意の元$a$に対して
+								\[
+										a+b=0
+								\]
+							となる$K$の元$b$が存在する．
+							\footnote{$b$はただ一つ存在することを後に示す}
+							($b$を以下$-a$と記す．)
+		\end{list}
+	\item	Ⅱ乗法の性質
+		\begin{list}{}{}
+			\item	（ⅰ）（可換性）$K$の任意の2元$a,b$に対して
+								\[
+										a	\cdot	b=b	\cdot	a
+								\]
+								が成り立つ．
+			\item	（ⅱ）（結合律）$K$の任意の3元$a,b,c$に対して
+								\[
+										a	\cdot	(b	\cdot	c)=(a	\cdot	b)	\cdot	c
+								\]
+								が成り立つ．
+			\item	（ⅲ）（単位元の存在）$K$の任意の元$a$に対して
+								\[
+										a	\cdot	1=a
+								\]
+								が常に成り立つような$K$の元$0$が存在する．
+								\footnote{単位元$1$はただ一つ存在することを後に示す．}
+								($1$は単位元と呼ばれる．)
+			\item	（ⅳ）（乗法に関する逆元の存在）$K$の任意の元$a$に対して
+								\[
+										a	\cdot	c=1
+								\]
+							となる$K$の元$c$が存在する．
+							\footnote{逆元$c=a^{-1}$はただ一つ存在することを後に示す．}
+							($c$を以下$a^{-1}$と記す．)
+		\end{list}
+	\item	Ⅲ（分配律）$K$の任意の3元$a,b,c$に対して
+						\[
+								a	\cdot	(b	+	c)	=	a		\cdot	 b	+	a		\cdot	c
+						\]
+						が成り立つ．
+						\footnote{通常は体の定義には$0	\ne	1$であることを要請する．これは零元$0$だけからなる
+						$\{0\}$は体とは考えない方が便利だからである．本書でもこの習慣に従うことにする．}
+\end{list}
+上の可換体の定義で乗法に関する逆元の存在Ⅱ（ⅳ）を除いたものは\textbf{可換環}と呼ばれる．
+\□
+
+
+なお，上野Ⅱ（ⅱ）の条件を落とすことによて，乗法が可換とは限らない
+（すなわち$a	\cdot	b	\ne	b	\cdot	a$となることがある）体や環を定義することが
+できる．乗法が可換でないことを強調するために非可換体，非可換環ということもある．
+非可換体や非可換環も数学では大切な役割を持つが，本書ではもっぱら可換体と可換環
+を考察の対象とする．以下，体というときはすべて可換体を意味する．
+
+上の可換体，可換環の定義はできるだけ一般的な形でのべた．脚注で述べたように，
+この定義だけから，零元，単位元，逆元はただ一つ存在することを示すことができる．
+零元がただ一つ存在することを示しておこう．体（もしくは可換環）$K$で
+Ⅰ（ⅲ）の性質を持つ零元$0_1,0_2$が二つあったと仮定してみよう．
+Ⅰ（ⅲ)より，すべての$K$の元$a$に対して
+\begin{align*}
+		a+0_1=a	\\
+		a+0_2=a	\\
+\end{align*}
+が成り立つ．最初の式で$a=0_2$とおくと
+\[
+	0_2+0_1=0_2
+\]
+また，2番目の式で$a=0_1$とおくと
+\[
+	0_1+0_2=0_1
+\]
+が成り立つ．加法の可換性Ⅰ（ⅰ）より
+\[
+	0_1+0_2=0_2+0_1
+\]
+であるので，上の２式より
+\[
+		0_1=0_2
+\]
+が成り立つ．これは零元がただ一つであることを意味する．
+
+同様に単位元もただ一つ存在することが分かる．$1$と$1'1$とが
+$k$の単位元であったとしよう．$K$の元$a$に対して
+\[
+	a	\cdot	1	=a
+	a	\cdot	1'=a
+\]
+が成り立つ．最初の式で$a=1$とおくと
+\[
+	1'\cdot	1=	1'
+\]
+また，2番目の式で$a=1$とおくと
+\[
+	1	\cdot	1'=1
+\]
+が成り立ち，積の可換性Ⅱ（ⅰ）を使うと
+\[
+	1=1	\cdot	1'=1'	\cdot	1=1'
+\]
+となり，単位元はただ一つであることが分かる．逆元に関しても同様である．
+加法に関する逆元について考えてみよう．$K$の元$a$に対して
+\begin{align*}
+		a+b=0	\\
+		a+b'=0	\\
+\end{align*}
+が成立したとする．最初の式の両辺に$b'$を足すと
+\[
+	b'+(a+b)=b'
+\]
+が成り立つ．加法に関する結合律Ⅰ（ⅱ）と可換性Ⅰ（ⅰ）を使うと，
+\begin{align*}
+		b'+(a+b)	&=	(b'+a)+b	=	(a+b')+b	\\
+							&=	a+(b'+b)	=	a+(b+b')	\\
+\end{align*}
+を得，
+\[
+	b'=a+(b+b')
+\]
+であることが分かる．同様に2番目の式の両辺に$b$を足すと，
+\[
+	b=a+(b+b'(
+\]
+であることが分かり，結局
+\[
+	b=b'
+\]
+であることが分かる．乗法に関する逆元に関しても同様の論法が成り立つが，
+これは読者の演習問題としよう．
+
+\例{A.8}
+有理数の全体$\Q$，実数の全体$\R$，複素数の全体$\C$は通常の和，
+積によって可換体である．$n$を平方数ではない整数とし
+\[
+	\Q(\sqrt{n})	=	\{a+b\sqrt{n}	\:	|	\:	a,b	\in	\Q	\}
+\]
+とおく．ただし$n$が負の数のときは，$n=-m,m	\geqq	1$とおくとき
+\[
+	\sqrt{n}=\sqrt{m}i
+\]
+と約束する．
+$\Q(\sqrt{n})	\subset	\C$であるが，$\Q(\sqrt{n})$は通常の和，積に関して
+閉じており，体であることが分かる．$a+b\sqrt{n}$の逆元は
+\[
+	\frac{1}{a+b\sqrt{n}}=\frac{a-b\sqrt{n}}{a^2-b^2n}
+	=
+	\frac{a}{a^2-b^2n}+\frac{-b}{a^2-b^2n}\sqrt{n}
+\]
+で与えられる．
+
+\例{A.9}
+有理数係数の$n$次既約多項式$f(x)$の根を一つを$\alpha$とする．
+\[
+\Q(\alpha)=\{
+	a_0+a_1\alpha+a_2\alpha^2+\cdot+a_{n-1}\alpha^{n-1}	\:|\:	
+	a_0,a_1,a_2,a_{n-1}	\in	\Q
+	\}
+\]
+とおく．$\Q(\alpha)	\subset	\C$と考えることができるが，
+$\Q(\alpha)$は通常の和や積で閉じている．
+和の方は明らかであろう．
+\[
+	f(x)=b_0	+	b_1x	+	b_2x^2	+	\cdot	+b_n^2	x^2,\quad	b_n	\ne	0
+\]
+と記すと，$f(\alpha)=0$より
+\[
+	\alpha^n=-\frac{1}{b_n}(b_0+b_2\alpha+\cdot+b_{n-1}\alpha^{n-1})	\in	\Q(\alpha)
+\]
+であることが分かる．この関係式を何度も使うことによって，正整数$m$に対して
+$\alpha^m	\in	\Q(\alpha)$であることが分かり，これにより$\Q(\alpha)$
+は有理数を係数とするとする$\alpha$の正ベキの和
+\[
+	\sum_{j=0}^m	c_j	\alpha^j,	\quad	c_j	\in	\Q
+\]
+をすべて含むを含むすべてのをことが分かる．これより$\Q(\alpha)$は
+積に関して閉じていることが分かる．このことから乗法に関する逆元の存在が言えれば
+$\Q(\alpha)$は体であることが分かる．
+($\alpha^m\alpha^n=\sum^{m-1}\sum^{n-1}=\sum^{m+n-2}=\alpha^{m+n-2}$)
+これにより，$\Q(\alpha)$は積について閉じていることがわかる．
+このことから，乗法に関する逆元の存在が言えれば，$\Q(\alpha)$は体であることが
+分かる．$\Q(\alpha)$の元
+\[
+	\beta=c_0+c_1\alpha+c_2\alpha^2+\cdot+c_{n-1}\alpha^{n-1}\alpha^{n-1},c_j	\in	\Q
+\]
+に対して，$\beta	\ne	0$のとき，逆元が存在することを示す．
+\[
+	g(x)=c_0+c_1\alpha+c_2\alpha^2+\cdots+c_{n-1}\alpha^{n-1}
+\]
+とおくと，$\beta	\ne	0$よりある$i$に対して$a_i	\ne	c_i$．
+$f(x)$は既約多項式であることより，$f(x)$と$g(x)$は互いに素である．
+したがって系A.2より
+\[
+	a(x)f(x)+b(x)g(x)=1
+\]
+となる$a(x),b(x)	\in	\Q[x]$が存在する．
+この式に$x=\alpha$を代入すると，$\beta=g(\alpha)$より，
+\[
+	b(\alpha)\beta=1
+\]
+が成り立つ．$b(\alpha)	\in	\Q[\alpha]$であるので，
+$\beta$の逆元は$b(\alpha)$であることが分かる．
+\□
+
+\例{A.10}
+（体$K$上の多項式環)
+体$K$の元を係数とする多項式の全体
+\[
+	\{	a_0+a_1x+a_2x^2+\cdots+a_nx^n	\:|\:	n	\geqq	0,a_j	\in	K	\}
+\]
+を$K[x]$と記し，$K$上の1変数多項式環という．多項式の通常の和，積によって
+$K[x]$は可換環になる．$K$の零元を$0$,単位元を$1$とすると，$K[x]$の零元は$0$，単位元は$1$である．
+$K[x]$は前節で考察した$\Q[x]$と類似の性質を持っている．特に$K[x]$は因数分解ができる．
+
+変数をふやして体$K$の元を係数とする$n$変数多項式の全体
+\[
+	\left\{\sum	a_{i_1i_2\cdots	i_n}x_1^{i_1}x_2^{i_2}\cdots	x_n^{i_n}	\:|\:
+				i_1,i_2,\cdots,i_n	\geqq	0	,a_{i_1i_2\cdots	i_n}	\in	K	
+	\right\}
+\]
+を$K[x_1,x_2,\cdots,x_n]$と記し，体$K$上の$n$変数多項式環という．
+$K[x_1,x_2,\cdots,x_n]$は零元が$0$，単位元が$1$である可換環であることも容易に
+分かる．多項式環は可換環を考える際，基本的に役割を果たす．
+\□
+
+さて，体もしくは可換環$K$に値してその定義から直ちに導かれる事実を少し述べておこう．
+$K$の任意の元$a$に対して，ⅢおよびⅠ（ⅲ）より
+\[
+	a	\cdot	0+	a	\cdot	0	=	a	\cdot	(0+0)	=	a	\cdot	0
+\]
+が成り立ち，Ⅰ（ⅳ）より$-(a	\cdot	0)$をこの式の左辺と右辺に足すと
+\[
+	a	\cdot	0	=	0
+\]
+を得る．さらに単位元$1$の加法に関する逆元を$-1$と記すと
+\[
+	1+(-1)=0
+\]
+この両辺に$a$をかけると
+\[
+	a	\cdot	\{1+(-1)\}=0
+\]
+を得る．左辺に分配律を適用すると
+\[
+	a	\cdot	1	+a	\cdot	(-1)	=	0
+\]
+を得る．左辺に分配律を適用すると
+\[
+	a	\cdot	1	+	a	\cdot	(-1)	=	0
+\]
+を得る．$a	\cdot	1	=	a$であるのでこれは
+\[
+	-a=a	\cdot	(-1)	=	(-1)	\cdot	a
+\]
+を意味する．
+
+さて，$K$の任意の元$a,b$に対して$a-b$を
+\[
+	a-b=a+(-b)
+\]
+と“定義”する．すると
+\[
+	a-b=c
+\]
+であることと
+\[
+	a=b+c
+\]
+であることは同値であることが分かり，$a-b$が通常の減法と類似の
+性質を持つことが分かる．また$K$が体のときは，
+$b	\ne	0$であれば$	a	\div	b$あるいは$a/b$を
+\[
+	a/b	=	a	\cdot	b^{-1}
+\]
+と“定義”する．
+\[
+	a/b=c
+\]
+であることと
+\[
+	a=bc
+\]
+であることが同値であることが分かり，$a/b$は通常の除法と類似の性質を持つことが
+分かる．一般の体を考えるときは，通常は$a	\div	b$や$a/b$という記号は使わず，
+$a	\cdot	b^{-1}$と記す．さらに，可換環や体の記号"$\cdot$"は省略することが多く．
+$a	\cdot	b$のかわりに$ab$，$a	\cdot	b^{-1}$のかわりに$ab^{-1}$と記すことが多い．
+以下，本書でも特に必要とならない限り積の記号は省略する．
+
+\定義{A.5}
+可換環$R$の部分集合$I$が以下の性質を持つとき$R$の\textbf{イデアル}（ideal）という．
+
+\begin{list}{}{}
+	\item	（ⅰ）$I$の任意の元$\alpha,\beta$に対して
+							\[
+									\alpha+\beta	\in	I
+							\]
+							がつねに成り立つ
+	\item	（ⅱ）$R$の任意の元$\alpha$と$I$の任意の元$\alpha$に対して
+							\[
+								a	\alpha	\in	I
+							\]
+							が成り立つ．
+\end{list}
+\□
+
+前節で$\Q[x]$のイデアルの定義をしたが，その定義と全く同一の定義であることに
+注意する．任意のイデアル$I$とその任意の元$a \in I$に対して，（ⅱ）より
+$0 = 0 \cdot a \in I$であることがわかる．
+
+また，上で述べたように
+\[
+	-\beta=(-1)\cdot	\beta
+\]
+であるので，$\beta	\in	I$であれば，（ⅱ）より$-\beta	\in	I$，したがって
+（ⅰ）より$\alpha	-	\beta	=	\alpha	+	(-\beta)	\in	I$が成り立つことに
+注意する．
+
+さて，可換環$R$の元$\alpha_1,\alpha_2,\cdots,\alpha_l$に対して
+\[
+		(\alpha_1,\alpha_2,\cdots,\alpha_l)	
+	=	\{a_1\alpha_1+a_2\alpha_2+\cdots+a_l\alpha_l	\:|\:	a_j	\in	R
+		\}
+\]
+とおくと，$(\alpha_1,\alpha_2,\cdots,\alpha_l)$は定義A.5
+の（ⅰ），(ⅱ）の性質を持つことは直ちに分かる．
+
+たとえば$(a) =\{ ax \: | \: x \in R\}$については，
+（ⅰ）$ax, ay \in (a)$とすると，分配律を用いて$ax-ay = a(x-y)$であるが，
+$x-y \in R$であるから，$ax-ay = a(x-y) \in (a)$．（ⅱ）$ax \in (a),y \in R$とすると，
+$ax \cdot y = a \cdot (xy)$であるが，$xy \in R$であるから$ax \cdot y = a \cdot xy \in (a)$
+
+これを$\alpha_1,\alpha_2,\cdots,\alpha_l$より生成されるイデアルという．
+とくに$(0)=\{0\}$であり，$(1)=R$であることに注意する．
+
+\補題{A.6}体$K$のイデアルは零イデアル$(0)$または$K=(1)$のみである．
+
+\証明
+体$K$のイデアル$I	\ne	(0)$を考える．$\alpha	\ne	0$である元が$I$に存在するが，
+$K$が体であることより$\alpha^{-1}		\in	I$である．したがって（ⅱ）より
+$I=\alpha^{-1}	\cdot	\alpha	\in	I$であり，再び（ⅱ）より$K$の任意の元
+$\alpha$Zに対して$a=a	\cdot	1	\in	I$となり，$I=K$であることが分かる．
+\■
+
+\定義{A.6}
+可換環$R$から環$S$への写像$\varphi:R	\rightarrow	S$は以下の性質を持つとき，
+\textbf{準同型写像}(homomorphism)という．
+\begin{list}{}{}
+	\item	（ⅰ）$R$の任意の元$a,b$に対して
+				\begin{align*}
+					\varphi(a+b)=\varphi(a)+\varphi(b)	\\
+					\varphi(ab)=\varphi(a)\varphi(b)	\\
+				\end{align*}
+	\item	（ⅱ）$R$の単位元を$1_R$，$S$の単位元を$1_S$と記すと
+					\[
+						\varphi(1_R)=1_S
+					\]
+\end{list}
+が成り立つ．
+\□
+
+\補題{A.7}
+可換環$R$から可換環$S$への準同型写像$\varphi:	R	\rightarrow	S$に対して
+\[
+	\Ker	\varphi	=	\{	\alpha	\in	R	\:|\:	\varphi(\alpha)	=	0	\}
+\]
+とおくと，$\Ker	\varphi$は可換環$R$のイデアルである．ただし$0$は$S$の零元
+とする．
+($\Ker	\varphi$は$\varphi$の\textbf{核}（kernel）と呼ばれる．）
+
+\証明
+
+$\Ker	\varphi$が定義A.5の性質（ⅰ），（ⅱ）を持つことを示す．
+$\alpha,\beta	\in	\Ker	\varphi$であれば，定義A.6により
+\[
+	\varphi(\alpha+\beta)=\varphi(\alpha)+\varphi(\beta)=0+0=0
+\]
+となり，$\alpha+\beta	\in	\Ker	\varphi$である．
+また，$R$の任意の元$a$に対して，再び定義A.6より
+\[
+	\varphi(a	\alpha)	=	\varphi(a)\varphi(\alpha)=\varphi(a)	\cdot	0	=	0
+\]
+となり，$a	\alpha	=	\Ker	\varphi$である．以上によって$\Ker	\varphi$は
+$R$のイデアルであることが示された．
+\■
+
+$\Ker	\varphi	=	\{0	\}$のとき$\varphi$は中への\textbf{同型写像}(isomorphism)と呼ばれる．
+さらに$\varphi(R)=S$のとき$\varphi$は上への同型写像と呼ばれる．このとき$R$と$S$とは
+可換環として同一の構造を持つと考えることができる．特に$R$が体のときは
+$R$のイデアルは$(0)$か$R$しかないので，準同型写像$\varphi:	R	\rightarrow	S$の核
+$\Ker	\varphi$は$(0)$であることが分かる（$\Ker	\varphi	=	R$の場合，$\varphi$は定値写像）．
+
+可換環$R$のイデアル$I$が与えられると，新しい可換環$R/I$を作ることができる．これを$R$の$I$
+による\textbf{剰余環}(residue	ring)という．前節と同様に，$R$の元$a$に対して，
+$R$の部分集合$\overline{a}$を
+\[
+	\overline{a}	=	\{	\alpha	\in	R	\:|\:	a-\alpha	\in	I	\}
+\]
+と定義する．$\overline{a}$はイデアル$I$を法とする$a$を含む剰余類と呼ばれる．
+$\overline{a}	\cap	\overline{b}	\ne	\varnothing$であれば
+$\overline{a}	=	\overline{b}$であることは容易に示すことができる．
+$R/I$はイデアル$I$を方とする剰余類の全体を意味する．このとき$R/I$の和と積を
+\begin{align*}
+	\overline{a}	+	\overline{b}	=\overline{a+b}	\\
+	\overline{a}	\cdot	\overline{b}	=\overline{ab}	\\
+\end{align*}
+で定義する．$\overline{0},\overline{1}$が$R/I$の零元，単位元となること，
+分配律が成立つことは容易に分かり，この定義によって$R/I$は可換環になる．自然な写像
+\[
+	\varphi:	R	\rightarrow	R/I;a	\mapsto	\overline{a}
+\]
+が準同型写像であることは，$R/I$の和と積の定義から自然に従う．
+
+\例{A.11}
+$\Q[x]$から複素数全体$\C$への写像$\varphi$を
+\[
+	\varphi	:	\Q[x]	\rightarrow	\C	;	f(x)	\mapsto	f(i)
+\]
+で定義すると，これは準同型写像である．
+\[
+	\Ker	\varphi=\{g(x)	\in	\Q[x]	\:|\:	g(i)=0	\}
+\]
+であるが，$f(x)	\in	\Q[x]$の係数は有理数であるので
+\[
+	\overline{f(i)}=f(-i)
+\]
+である．ここで“$\overline{\text{　}}$は複素共役を表わす（このことは係数が
+実数であれば成り立つ）．したがって$g(i)=0$でれば，$g(-i)=0$であり，
+$g(x)$は$(x-i)(x+i)=x^2+1$で割り切れることになる．このことから$\Ker	\varphi$は
+$x^2+1$で生成されるイデアルであることが分かる．すなわち
+\[
+	\Ker	\varphi	=	(x^2+1).
+\]
+前節の例A.6で見たように$\Q[x]/\Ker	\varphi	=	\Q[x]/(x^2+1)$は
+$\Q(i)$と同一視できる（同型である）．
+\[
+	\Img	\varphi	=	\{\varphi(a)	\:|\:	a	\in	\Q[x]	\}
+\]
+とおくと（$\Img	\varphi$は$\varphi$の\textbf{像}(image)と呼ばれる），
+$\Img	\varphi=\Q[i]$であることを示すことができる．
+
+$\Q[x]$のかわりに，実数を係数とする多項式の全体のなす環$\R[x]$を考え，
+上と同様に写像$\varphi	:	\R	\rightarrow	\C$を
+\[
+	\varphi	:	\R[x]	\rightarrow	\C;	f(x)	\mapsto	f(i)
+\]
+と定義すると準同型写像になる．上と同様に議論によって
+\[
+	\Ker	\varphi	=	(x^2+1)
+\]
+であることが分かる．今度は，$\R[x]/(x^2+1)$は$\C$と同一視できる（同型である）
+\[
+	\R[x]/\Ker	\varphi	\simeq	\Img	\varphi
+\]
+ことが分かる．
+\□
+
+\例{A.12}
+$\C$上の2変数多項式環$\C[x,y]$から1変数多項式環$\C[t]$への写像
+\[
+	\psi	\:	:	\:	\C[x,y]	\rightarrow	C[t]
+				\:	;	\:	f(x,y)	\mapsto	f(t^2,t^3)
+\]
+を考える．
+\begin{align*}
+	\psi(
+		&a_{00}x^0y^0+a_{01}x^0y^1+a_{02}x^0y^2+a_{03}x^1y^3
+		+a_{04}x^0y^4+a_{05}x^0y^5+a_{06}x^0y^6+a_{07}x^0y^7
+			+\cdots	+	a_{0n}x^0y^n	+	\cdots	\\
+	+	&a_{10}x^1y^0+a_{11}x^1y^1+a_{12}x^1y^2+a_{13}x^1y^3
+		+a_{14}x^1y^4+a_{15}x^1y^5+a_{16}x^1y^6+a_{17}x^1y^7
+			+\cdots	+	a_{1n}x^1y^n	+	\cdots	\\
+	+	&a_{20}x^2y^0+a_{21}x^2y^1+a_{22}x^2y^2+a_{23}x^2y^3
+		+a_{24}x^2y^4+a_{25}x^2y^5+a_{16}x^2y^6+a_{27}x^2y^7
+			+\cdots	+	a_{2n}x^2y^n	+	\cdots	\\
+	+	&a_{30}x^3y^0+a_{31}x^3y^1+a_{32}x^3y^2+a_{33}x^3y^3
+		+a_{34}x^3y^4+a_{35}x^3y^5+a_{36}x^3y^6+a_{37}x^3y^7
+			+\cdots	+	a_{3n}x^3y^n	+	\cdots	\\
+	+	&a_{40}x^4y^0+a_{41}x^4y^1+a_{42}x^4y^2+a_{43}x^4y^3
+		+a_{44}x^4y^4+a_{45}x^4y^5+a_{46}x^4y^6+a_{47}x^4y^7
+			+\cdots	+	a_{4n}x^4y^n	+	\cdots	\\
+	+	&a_{50}x^5y^0+a_{51}x^5y^1+a_{52}x^5y^2+a_{53}x^5y^3
+		+a_{54}x^5y^4+a_{55}x^5y^5+a_{56}x^5y^6+a_{57}x^5y^7
+			+\cdots	+	a_{5n}x^5y^n	+	\cdots	\\
+	+	\cdots	\\
+	=
+		&a_{00}t^{0+0}+a_{01}t^{0+3}+a_{02}t^{0+6}+a_{03}t^{0+9}
+		+a_{04}t^{0+12}+a_{05}t^{0+15}+a_{06}t^{0+18}+a_{07}t^{0+21}
+			+\cdots	+	a_{0n}t^{0+3n}	+	\cdots	\\
+		&a_{10}t^{2+0}+a_{11}t^{2+3}+a_{12}t^{2+6}+a_{13}t^{2+9}
+		+a_{14}t^{2+12}+a_{15}t^{2+15}+a_{16}t^{2+18}+a_{17}t^{2+21}
+			+\cdots	+	a_{1n}t^{2+3n}	+	\cdots	\\
+		&a_{20}t^{4+0}+a_{21}t^{4+3}+a_{22}t^{4+6}+a_{23}t^{4+9}
+		+a_{24}t^{4+12}+a_{25}t^{4+15}+a_{26}t^{4+18}+a_{27}t^{4+21}
+			+\cdots	+	a_{2n}t^{4+3n}	+	\cdots	\\
+		&a_{30}t^{6+0}+a_{31}t^{6+3}+a_{32}t^{6+6}+a_{33}t^{6+9}
+		+a_{34}t^{6+12}+a_{35}t^{6+15}+a_{36}t^{6+18}+a_{37}t^{6+21}
+			+\cdots	+	a_{3n}t^{6+3n}	+	\cdots	\\
+		&a_{40}t^{8+0}+a_{41}t^{8+3}+a_{42}t^{8+6}+a_{43}t^{8+9}
+		+a_{44}t^{8+12}+a_{45}t^{8+15}+a_{46}t^{8+18}+a_{47}t^{8+21}
+			+\cdots	+	a_{4n}t^{8+3n}	+	\cdots	\\
+		&a_{50}t^{10+0}+a_{51}t^{10+3}+a_{52}t^{10+6}+a_{53}t^{10+9}
+		+a_{54}t^{10+12}+a_{55}t^{10+15}+a_{56}t^{10+18}+a_{57}t^{10+21}
+			+\cdots	+	a_{5n}t^{10+3n}	+	\cdots	\\
+	+	\cdots	\\
+	=
+		&a_{00}t^0+a_{01}t^3+a_{02}t^6+a_{03}t^9
+		+a_{04}t^{12}+a_{05}t^{15}+a_{06}t^{18}+a_{07}t^{21}
+			+\cdots	+	a_{0n}t^{3n}	+	\cdots	\\
+		&a_{10}t^2+a_{11}t^5+a_{12}t^8+a_{13}t^{11}
+		+a_{14}t^{14}+a_{15}t^{17}+a_{16}t^{20}+a_{17}t^{23}
+			+\cdots	+	a_{1n}t^{2+3n}	+	\cdots	\\
+		&a_{20}t^4+a_{21}t^7+a_{22}t^{10}+a_{23}t^{13}
+		+a_{24}t^{16}+a_{25}t^{19}+a_{26}t^{22}+a_{27}t^{25}
+			+\cdots	+	a_{2n}t^{4+3n}	+	\cdots	\\
+		&a_{30}t^6+a_{31}t^9+a_{32}t^{12}+a_{33}t^{15}
+		+a_{34}t^{18}+a_{35}t^{21}+a_{36}t^{24}+a_{37}t^{27}
+			+\cdots	+	a_{3n}t^{6+3n}	+	\cdots	\\
+		&a_{40}t^8+a_{41}t^{11}+a_{42}t^{14}+a_{43}t^{17}
+		+a_{44}t^{20}+a_{45}t^{23}+a_{46}t^{26}+a_{47}t^{29}
+			+\cdots	+	a_{4n}t^{8+3n}	+	\cdots	\\
+		&a_{50}t^{10}+a_{51}t^{13}+a_{52}t^{16}+a_{53}t^{19}
+		+a_{54}t^{22}+a_{55}t^{25}+a_{56}t^{28}+a_{57}t^{31}
+			+\cdots	+	a_{5n}t^{10+3n}	+	\cdots	\\
+	+	\cdots	\\
+\end{align*}
+写像$\psi$が準同型写像であることは容易に分かる．
+\[
+	g(x,y)	=	\sum	a_{mn}	x^my^n
+\]
+が$\Ker	\psi$に属するとすると
+\begin{eqnarray}
+	g(t^2,t^3)=\sum	a_{mn}	t^{2m+3n}	=	0
+\end{eqnarray}
+この式で$(m,n)	\ne	(m',n')$に対して，$t^{2m+3n}	=	t^{2m'+3n'}$，すなわち
+\[
+	2m+3n=2m'+3n'
+\]
+が成り立ったとすると
+\[
+	2(m-m')	=	3(n'-n)
+\]
+より，$(m,n)	\ne	(m',n')$と仮定したので
+\[
+	m-m'=3l,\quad	n'-n	=	2l	,	t	\geqq	1
+\]
+が成り立つ．この事実より，$g(x,y)$は$x^3-y^2$で割り切れることを示すことが
+できるが，証明は読者の演習としよう．
+
+\証明
+$g(x,y)	\in	(x^3-x^2)$を示せばよい．まず$\psi((x^3-y^2))	=	\{0\}$を示す．
+\begin{align*}
+	f(t^2,t^3)	\in	\psi((x^3-y^2))	
+		&\Longrightarrow	f(x,y)=\psi^{-1}(f(t^2,y^3))	\in	(x^3-y^2)	\\
+		&\Longrightarrow	f(x,y)=f_1(x,y)(x^3-y^2)	\quad	\text{ここで　}	f_1(x,y)	\in	\C[x,y].	\\
+			&\Longrightarrow	f(t^2,t^3)	=	\psi(f(x,y))						\\
+			&\quad\quad\quad\quad\qquad		=	\psi(f_1(x,y)(x^3-y^2))	\\
+			&\quad\quad\quad\quad\qquad		=	\psi(f_1(x,y))\psi((x^3-y^2))	\\
+			&\quad\quad\quad\quad\qquad		=	\psi(f_1(x,y))(t^6-t^6)				\\
+			&\quad\quad\quad\quad\qquad		=	0	\in	\{0\}										\\
+			&	\therefore	\psi((x^3-y^2))	\subset	\{0\}	\\
+	f(t^2,t^3)	\in	\{0\}
+		&\Longrightarrow	f(t^2,t^3)								=	\sum	a_{mn}	t^{2m+3n}	=0	\\
+		&\Longrightarrow	f(t^2,t^3)-\psi((x^3-y^2))=	\sum	a_{mn}	t^{2m+3n}	-\psi(x^3-y^2)=0	\\
+		&\Longrightarrow	\psi^{-1}(f(t^2,t^3)-\psi(x^3-y^2))
+										=	\psi^{-1}(\sum	a_{mn}	t^{2m+3n}	-\psi((x^3-y^2))	\in	\Ker	\psi	\\
+\end{align*}
+\begin{align*}
+	\sum	a_{mn}	t^{2m+3n}	=	0	
+		&\Longrightarrow	\sum	a_{mn}t^{2m+3n}	\in	\{0\}	\\
+		&\Longrightarrow	\sum	a_{mn}t^{2m+3n}	\in	\{0\}\\
+		&\Longrightarrow	\psi\left(\sum	a_{mn}x^{2m}y^{3n}\right)	\in	\psi(x^3-y^2)	\\
+\end{align*}
+
+$\sum	a_{mn}x^my^n	\in	(x^3-y^2)$
+
+したがって
+\[
+	\Ker	\psi	=	(x^3-y^2)
+\]
+である．では$\psi$の像
+\[
+	\Img	\psi	=	\{	f(t^2,t^3)	\:	|	\:	f	\in	\C[x,y]	\}
+\]
+は何であろうか．
+\[
+	\psi(x^my^n)=t^{2m+3n}
+\]
+に注意すると$\psi(f(x,y))=t$となる多項式
+$f(x,y)$は存在しないことが分かる．一方
+\begin{align*}
+	&\psi(1)=1,				\quad	\psi(x)=t^2,							\quad	\psi(y)=t^3,											\\
+	&\psi(x^2)=t^4,		\quad	\psi(xy)=t^5,							\quad	\psi(y^2)=t^6,\cdots,							\\
+	&\psi(x^2y)=t^7,	\quad	\psi(x^4)=\psi(xy^2)=t^8,	\quad	\psi(y^3)=\psi(x^3y)=t^9,\cdots,	\\
+\end{align*}
+となり，$\Img	\psi$は$t$の1次の項を含まない多項式の全体
+\[
+	A=\left\{a_0+\sum_{j=2}^m	a_jt^j	\:\bigg|\:	m	\geqq	2,	a_j	\in	\C	\right\}
+\]
+であることが分かる．$A	\subset	\C[t]$は$C[t]$の和，積に関して閉じており，
+可換環であることが分かる．$A	\ne	\C[t]$であることは，$\C^2$内に
+$x^3-y^2=0$で定まる図形が原点$(0,0)$で特異点をもつことと関係している．
+\□
+
+可換環の準同型写像$\varphi:R	\rightarrow	S$に対して剰余環$R/\Ker	\varphi$から
+$S$へ写像$\overline{\varphi}$を
+\[
+	\overline{\varphi}:	R/\Ker	\varphi	\rightarrow	S
+										;	\overline{a}		\mapsto			\varphi(a)
+\]
+と定義することができる．このとき，$\overline{\varphi}$は中への同型写像である．
+すなわち$\Ker	\overline{\varphi}=\{0\}$．
+このことの証明は読者の演習としよう．
+
+\証明
+まず準同型写像であることを示す．
+\begin{align*}
+	&\overline{\varphi}(\overline{a}+\overline{b})
+=	\overline{\varphi}(\overline{a+b})
+=	\varphi(a+b)
+=	\varphi(a)+\varphi(b)
+=	\overline{\varphi}(\overline{a})+\overline{\varphi}(\overline{b})	\\
+	&\overline{\varphi}(\overline{a}\overline{b})
+=	\overline{\varphi}(\overline{ab})
+=	\varphi(ab)
+=	\varphi(a)\varphi(b)
+=	\overline{\varphi}(\overline{a})\overline{\varphi}(\overline{b})	\\
+\end{align*}
+次に
+\begin{align*}
+	\overline{a}	\in	\Ker	\varphi	
+&	\Longrightarrow	\overline{\varphi}(\overline{a})
+								=	\varphi(a)=0				\\
+&	\Longrightarrow	a		\in	\Ker	\varphi	
+	\Longrightarrow	a-0	\in	\Ker	\varphi	\\
+&	\Longrightarrow	0		\in	\overline{a}
+	\Longrightarrow	\overline{0}	=	\overline{a}	\\
+&	\Longrightarrow	\overline{a}	\in	\{\overline{0}	\}	\\
+&\therefore	\Ker	\overline{\varphi}	\subset	\{\overline{0}\}
+\end{align*}
+\begin{align*}
+	\overline{0}	\in	\{\overline{0}	\}	
+&	\Longrightarrow	\overline{\varphi}(\overline{0})=\varphi(0)=0	\\
+&	\Longrightarrow	\overline{0}	\in	\Ker	\overline{\varphi}		\\
+&\therefore	\{\overline{0}\}	\in	\Ker	\overline{\varphi}
+\end{align*}
+すなわち$\{\overline{0}	\}=\Ker	\overline{\varphi}$となり
+$\overline{\varphi}$は同型写像である．
+\■
+
+\定義{A.7}
+\begin{list}{}{}
+	\item	（ⅰ）可換環$R$の2元$a	\ne	0$，$b	\ne	0$が
+							\[
+									ab=0
+							\]
+							を満たすとき，$a$，$b$は$R$の\textbf{零因子}（zero	divisor)であるという．
+							零因子を持たない可換環を\textbf{整域}（integral domain）という．
+	\item	（ⅱ）可換環$R$のイデアルは$R/I$が整域のとき\textbf{素イデアル}という．
+\end{list}
+\□
+
+零因子の例はすでに定理A.2の（ⅱ），例A.5に出てきた．体は零因子を持たないことは
+乗法に関する逆元の存在から簡単に示すことができる．
+
+\証明
+$ab=0$とすると，$abb^{-1}=a=0$．同様に$b=0$．
+\□
+
+可換環$R$が整域であるということは
+
+　“$ab=0$であれば$a=0$または$b=0$である”
+
+が成り立つことを意味する．したがって，素イデアルの定義も
+
+　“$\overline{a}$，$\overline{b}	\in	R/I$に対して
+$\overline{a}\cdot\overline{b}=0$であれば$\overline{a}=\overline{0}$
+または$\overline{b}=\overline{0}$である”
+
+が成り立つことと言い直すことができる．ところで$\overline{a},\overline{b}$
+はそれぞれ$a,b$の属するイデアル$I$を法とする剰余類であるので，
+\[
+	\overline{a}\cdot\overline{b}=\overline{0}
+\]
+は
+\[
+	ab	\in	I
+\]
+を意味する．また$\overline{a}=\overline{0}$は$a	\in	I$を意味する．
+したがって，素イデアルの定義は
+\begin{list}{}{}
+	\item	“$ab	\in	I$であれば$a	\in	I$または$b	\in	I$が成り立つ”
+\end{list}
+と言い換えることができる．これは，対偶をとって，さらに
+\begin{list}{}{}
+	\item	“$a	\notin	I$かつ$b	\notin	I$であれば$ab	\notin	I$が成り立つ”
+\end{list}
+と言い換えることができることに注意する．§2.4（b）でら素イデアルをこれらの
+形で定義した．
+
+\例{A.13}
+多項式環$R=\C[x_0,x_1,x_2,x_3]$で斉次多項式
+\begin{align*}
+	F	&=x_0x_3-x_1x_2	\\
+	G	&=x_1^2-x_0x_2	\\
+	H	&=x_2^2-x_1x_3
+\end{align*}
+で生成されるイデアル$I=(F,G,H)$は素イデアルである．
+(例2.18および演習問題2.8)．
+
+$\because$任意の$g	\in	I$について，$\exists	f_1,\exists	f_2,\exists	f_3	\in R$が存在して，
+$g=f_1F+f_2G+f_3H$となる（保留？）．
+
+しかしながら$F$と$G$とで
+生成されるイデアル$J=(F,G)$は素イデアルではない．
+$H	\notin	J$であることは，
+\[
+	H=AF+BG
+\]
+と書けたとして，
+\[
+	x_2^2-x_1x^3=Ax_0x_3-Ax_1x_3+Bx_1^2-Bx_0x_2
+\]
+右辺と左辺の係数を比較することによって，$A$，$B$をどのように選んでも$x_2^2$の項は出てこないため
+矛盾が生じることにより容易に示すことができる．したがって$H	\notin	J$．
+つぎに$R/J$で
+\[
+	\overline{H}=\{f	\in	R	\:|	\:	H-f	\in	J\}
+\]
+とおくと$0	\notin	\overline{H}$であるから$\overline{H}	\ne	\overline{0}$．
+また$\overline{x_0}	=	\{f	\in	R	\:	|	\:	x_0	-	f	\in	J\}$は，$0	\notin	\overline{x_0}$であるから
+$\overline{x_0}	\ne	\overline{0}$
+である．一方
+\begin{align*}
+		x_0(x_2^2-x_1x_3)	&=	x_0x_2^2-x_0x_1x_3	\\
+											&=	x_0x_2^2-x_1^2x_2	+	x_1^2x_2-x_0x_1x_3	\\
+											&=	-x_1(x_0x_3-x_1x_2)	-	x_2(x_1^2-x_0x_2)	\\
+											&=	-x_1F-x_2G	\\
+\end{align*}
+より
+\[
+	\overline{x_0}\cdot\overline{H}	\in	(F,G).
+\]
+$x_0H-0	\in	(F,G)$であるから，$0	\in	\overline{x_0H}$，
+よって$\overline{0}=\overline{x_0}\cdot\overline{H}$，
+したがって$\overline{x_0},\overline{H}$は零因子であり，
+$J$は素イデアルでない．（なお例2.19では$J$が素イデアルでは幾何学的理由を示している．）
+\□
+
+可換環$R$のイデアル$I$は$I	\ne	R$かつ
+\[
+	I	\subsetneq	J	\subsetneq	R
+\]
+を満足するイデアル$J$が存在しないとき，$R$の\textbf{極大イデアル}(maximal ideal)
+と呼ばれる．
+\□
+
+\定理{A.4}
+
+可換環$R$のイデアル$I$が極大イデアルであるための必要十分条件は
+$R/I$は体であることである．したがって，極大イデアルは素イデアルである．
+
+\証明
+
+$I$は極大イデアルであるとする．$a	\notin	I$である$R$の元をとって
+\[
+	J=\{\alpha	a	+	b	|	\alpha	\in	R,b	\in	I	\}
+\]
+とおくと，$J$は$R$のイデアルである．
+なぜならば$\alpha	a	+	b$，$\beta	a	+	c	\in	J$であれば
+\[
+	(\alpha	a	+	b)	+	(\beta	a	+	c)=
+	(\alpha	+\beta)	a	+	b	+	c)	\in	J
+\]
+であり，$R$の任意の元$r$に対して，$b	\in	I$であれば$rb	\in	I$であるので
+\[
+	r(\alpha	a	+	b)	=	(r	\alpha	)	a	+	rb	\in	J
+\]
+であるからである．$a	\notin	I$と仮定したので
+\[
+	I	\subsetneq	J
+\]
+であるが，$I$は極大イデアルであったので$J=R$でなければならない．
+したがって，特に$1	\in	J$であり，これは
+\[
+	1	=	\alpha	a	+	b
+\]
+を満たす$\alpha	\in	R$，$b	\in	I$が存在することを意味する．
+このとき，$\alpha	a	-	1=	-b	\in	I$であるので，
+この等式を$R/I$で考えれば
+\[
+	\overline{1}=\overline{\alpha}\cdot\overline{a}
+\]
+が成り立つことが分かる．すなわち$\overline{a}	\ne	\overline{0}$（$a	\notin	I$）である
+$R/I$の元は乗法に関する逆元を持ち，したがって$R/I$は体である．
+
+逆に$R/I$は体であるとしよう．$I	\subsetneq	J$である$R$のイデアル$J$を考える．
+$a	\notin	I$である$J$の元$a$をとると，$R/I$では$\overline{a}	\ne	\overline{0}$
+である．したがって
+\[
+	\overline{a}\cdot	\overline{b}	=	\overline{1}
+\]
+となる$R/I$の元$\overline{b}$が存在する．これは
+\[
+	ab-1	\in	I
+\]
+を意味するので$c=ab-1$とおくと，
+\[
+	1=ab-c,	\quad	c	\in	I
+\]
+であり，$a,c	\in	J$である（$\because	c	\in	I	\subsetneq	J$）ので$1	\in	J$である．これは$J=R$を意味し，$I$は極大イデアル
+である．
+\■
+
+\例{A.14}
+整数を係数とする多項式の全体$\Z[x]$は通常の和と積に関して可換環である．
+素数$p$より生成される$\Z[x]$のイデアル$(p)$は$\Z[x]$の素イデアルである．
+
+　
+
+\framepage{0.9}{
+
+\textbf{素イデアルの定義の復習より}
+\[
+	f(x)	\notin	(p),	\quad	g(x)	\notin	(p)	
+		\Longrightarrow	f(x)g(x)	\notin	(p)
+\]
+}
+
+　
+
+$\Z[x]/(p)$は体$\Z/(p)=\{\overline{a}	\:	|	\:	\overline{a}=\{b	|	a-b	\in	(p)	\}\}$
+を係数とする多項式全体，すなわち体$\Z/(p)[z]$は
+整域であるので$(p)$は素イデアルである．次に定数ではない多項式
+$f(x)	\in	\Z[x]$を考えて$p$と$f(x)$で生成されるイデアル$(p,f(x))$を考える．
+\[
+	f(x)=\sum_{j=0}^n	a_j	x^j,	\quad	a_j	\in	\Z
+\]
+と書いて，$a_j$の定める$\Z/(p)$の元を$\overline{a_j}$と記し
+\[
+	\overline{f}(x)	=	\sum_{j=0}^n	\overline{a}_j	x^j
+\]
+と記す．$\overline{f}(x)	\in	\Z/(p)[x]$である．
+$\overline{f}(x)$が$\Z/(p)[x]$で可約である．すなわち
+\[
+	\overline{f}(x)=\overline{g}(x)\overline{h}(x),
+		\quad	\deg	\overline{g}(x)	\geqq	1,\deg	\overline{h}(x)	\geqq	1
+\]
+と仮定する．$g(x),h(x)	\in	\Z[x]$の係数を$\Z/(p)$で考えたものが$\overline{g}(x),\overline{h}(x)$
+であるとすると，$f(x)-g(x)h(x)$の係数はすべて$p$で割り切れる．したがって
+\[
+	g(x)h(x)	\in	(p,f(x))
+\]
+である．一方，$g(x)	\notin	(p,f(x)),h(x)	\notin	(p,f(x))$であるので
+これは$(p,f(x))$は素イデアルでないことを意味する．
+
+もし$\overline{f}(x)$が$\Z/(p)[x]$で既約であれば，前節の補題A.5，系A.2と同様の議論に
+よって$\Z/(p)[x]/(\overline{f}(x))$は体であることが分かる．一方$\Z[x]/(p,f(x))$と
+$\Z/(p)[x]/(\overline{f}(x))$とは可換環として同一の構造を持つ（同型である）ことが
+示されるので，$(p,f(x))$は$\Z[x]$の極大イデアルである．
+\■
+
+次の定理は複素数体$\C$のときのHirbertの零点定理の基本になるものである．証明は準備が
+さらに必要になるので，ここでは割愛する．
+
+\定理{A.5}
+$\C$上の多項式環$C[x_1,x_2,\cdots,x_n]$の極大イデアルはすべて$(x_1-a_1,x_2-a_2,\cdots,x_n-a_n)$
+の形をしている．
+\□
+
+イデアル$(x_1-a_1,x_2-a_2,\cdots,x_n-a_n)$は，準同型写像
+\[
+	\varphi	:\C[x_1,x_2,\cdots,x_n]	\Longrightarrow	\C
+					;f(x_1,x_2,\cdots,x_n)	\mapsto					f(a_1,a_2,\cdots,a_n)
+\]
+の核$\Ker	\varphi$と一致している．この定理は複素係数の1変数多項式は必ず$\C$
+内に根を持つという事実に基づいていることに注意する．たとえば$\R[x_1,x_2]$
+では$(x_1,x_2^2+1),a	\in	\R$は極大イデアルである．
+
+体$K$の元を係数とする任意の多項式$f(x)$が$K$に根を持つとき，$K$を
+\textbf{代数的閉体}（algebraically	closed	field）という．複素数体$\C$
+は代数的閉体の例である(代数学の基本定理）．定理A.5は$\C$のかわりに代数的閉体
+$K$上の多項式環$K[x_1,x_2,\cdots,x_m]$に対しても成立する．ところで，任意の
+体$K$に対して$K$を含む代数的閉体$\overline{K}$が存在することが知られている．
+

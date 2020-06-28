@@ -1,0 +1,346 @@
+\section{局所化と局所環}
+
+可換環$R$が極大イデアルを一つしか持たないとき，$R$の
+\textbf{局所環}(local	ring)という．
+
+局所環は代数幾何学では大切な役割をするので可換環から局所化によって
+局所環を定める方法を簡単に述べておこう．以下簡単のため$R$は整域と仮定する．
+
+可換環$R$の部分集合$S$が次の条件を満たすとき，\textbf{乗法的に閉じた集合}
+であるという．
+\begin{list}{}{}
+	\item	（ⅰ）$a,b	\in	S$であれば$ab	\in	S$
+	\item	（ⅱ）$0	\notin	S,	1	\in	S$
+\end{list}
+可換環$R$と乗法的に閉じた$R$の部分集合$S$が与えられたとき，新しい可換環$S^{-1}R$を次の
+ようにして定める．（以下の定義は分数の一般化と考えることができる．）
+
+$S^{-1}R$の元は$\displaystyle	\frac{a}{s},a	\in	R,s	\in	S$の形の全体
+\[
+	S^{-1}R=	\left\{ \: \frac{a}{s} \: \bigg| \: a\in R , \: s \in S \: \right\}
+\]
+であるが，
+\begin{eqnarray}
+	\frac{a}{s}=\frac{a'}{s'}	\Longleftrightarrow	as'=a's	\label{eq:A.3}
+\end{eqnarray}
+と定める．
+\footnote{
+	$R$が整域でないときは，この右辺の条件は
+	\[
+		s''(as'-a's)=0
+	\]
+	を満足する$s''	\in	S$が存在する，という条件に変更する必要がある．
+}
+（これは二つの分数が等しい場合の類似である．）$S^{-1}R$の元の和と積とを
+\begin{align*}
+	\frac{a}{s}+\frac{b}{t}			&=	\frac{at+bs}{st}	\\
+	\frac{a}{s}\cdot\frac{b}{t}	&=	\frac{ab}{st}	\\
+\end{align*}
+で定義する．$S$の元$s,t$に対して
+\[
+	\frac{a}{s}=\frac{at}{st},\quad	\frac{b}{t}=\frac{bs}{st}
+\]
+であることは(\ref{eq:A.3})より明らかであるので，和の定義が意味を持つことは明らかであろう．
+この定義によって$S^{-1}R$は$\displaystyle	\frac{0}{1}$を零元とし，
+$\displaystyle	\frac{1}{1}$を単位元とする可換環になることが分かる．また写像
+\[
+	\psi	:	R	\rightarrow	S^{-1}R	
+				;	a	\mapsto			\frac{a}{1}
+\]
+は中への同型写像であるので，
+\footnote{
+	$R$が整域でないときは
+	\[
+		\Ker	\psi	=	\{	a	\in	R	\:	|	\:	sa=0	\text{となる$s	\in	S$が存在する}	\}
+		\ne
+		\{	0	\}
+	\]
+	となり，$\psi$は必ずしも同型写像ではない．
+}
+（分数のときと同様に）$a$と$\displaystyle	\frac{a}{1}$とは同一視する．したがって
+$S^{-1}R$の零元，単位元も$0,1$で記す．
+
+\例{A.18}
+$S=R-\{0\}$とおくと$R$の整域であるので，$S$は乗法的に閉じた集合である．
+このとき$S^{-1}R$は体である．なぜならば
+$S^{-1}R$の元は$\displaystyle	\frac{b}{a},a,b	\in	R,	a	\ne	0$の形
+をしており，$\displaystyle	\frac{b}{a}=0$であるのは
+(\ref{eq:A.3})より
+$b	\cdot	1	=	a	\cdot	0$，よって$b=0$のときのみである．したがって
+$\displaystyle	\frac{b}{a}	\ne	0$であれば$b	\ne	0$となって
+$\displaystyle	\frac{a}{b}	\in	S^{-1}R$であり積の定義より
+\[
+	\frac{b}{a}	\cdot	\frac{a}{b}	=	1
+\]
+が成り立つ．これは$S^{-1}R$が体であることを意味する．$S^{-1}R$は整域$R$の
+\textbf{商体}(field	of quotients)と呼ばれる．上にのべたように
+$a$と$\displaystyle	\frac{a}{1}$と同一視することによって
+$R	\subset	S^{-1}R$と考えることができる．
+$R=\Z$のときその商体は$\Q$であり，$\Z$から$\Q$を作る操作は分数を作ることにほかならない．
+$R$が体$K$上の1変数多項式環$K[x]$のときは，商体は１変数有理関数体$K(x)$：
+\[
+	K(x)=	\left\{
+		\frac{g(x)}{f(x)}	\:	|	\:
+			f(x),g(x)	\in	K[x],f(x)	\ne	0
+				\right\}
+\]
+にほかならない．$n$変数多項式環$K[x_1,x_2,\cdots,x_n]$のときも，商体は$n$変数有理関数体
+$K(x_1,x_2,\cdots,x_n)$：
+\[
+	K(x_1,x_2,\cdots,x_n)=
+		\left\{
+			\frac{g(x_1,x_2,\cdots,x_n)}{f(x_1,x_2,\cdots,x_n)}	\:	|	\:
+			f,g	\in	K[x_1,x_2,\cdots,x_n],	f	\ne	0
+		\right\}
+\]
+にほかならない．
+\□
+
+\例{A.19}
+(ⅰ) 整域$\Z$の素イデアル$(7)=\{0,7,14,	\cdots	,	7n	,	\cdots	\}$を用いて，$\Z$に局所化を施してみる．
+\[
+	S	=	\Z	-	(7)	=	\{	a	\in	\Z	\:	|	\:	a	\not\in	(7)	\:	\}
+\]
+とおく．$0	\in	(7)$であるので$	0	\not\in	S$，かつ$1	\not\in	(7)$であるので$1	\in	S$である．
+また$a,b	\in	S$であれば$a,b	\not\in	(7)$であり，$(7)$は素イデアルであるので$ab	\not\in	(7)$である，
+$ab	\not\in	S$となり$S$は乗法的に閉じた集合である．$S^{-1}\Z	=	\Z_{(7)}$と記す:
+\begin{align*}
+	\Z_{(7)}	&	=	\left\{	\frac{a}{s}	\:	\bigg|	\:	a	\in	\Z	\:	,	\:	s	\in	S	\right\}	\\
+						&	=	\left\{	\frac{a}{s}	\:	\bigg|	\:	a	\in	\Z	\:	,	\:	s	\in	(7)	\right\}
+\end{align*}
+$\Z	\subset	\Z_{(7)}$と考える（$s	=1$の場合）.
+
+$(7)$の元から生成される$\Z_{(7)}$のイデアルを$(7)\Z_{(7)}$と記すと，
+\begin{align*}
+	(7)\Z_{(7)}	&=	\left\{	\:	\sum	ar	\:	\bigg|	\:	a	\in	(7)	,	\:	r	\in	\Z_{(7)}	\:	\right\}	\\
+							&=	\left\{	\:	\sum	7	z_i	\frac{a}{s}	\:	\bigg|	\:	7z_i	\in	(7),	\:	a	\in	\Z	,	\:	s	\not\in	(7)	\:	\right\}	\\
+							&=	\left\{	\:	\frac{a}{s}	\:	\bigg|	\:	a	\in	(7)	,	\:	s	\not\in	(7)	\:	\right\}	
+\end{align*}
+であることがわかる．また，
+\[
+	(7)	\Z_{(7)}	\cap	\Z	=	(7)
+\]
+であることも容易にわかる（$\subset$と$\supset$を示すばよい）．このことから，$a	\in	\Z$の属する
+$(7)$を法とする剰余類$\overline{a}$を$a	\in	\Z_{(7)}$の属する$(7)\Z_{(7)}$を法とする剰余類$\tilde{a}$に対応させることによって，
+自然な写像
+
+\begin{alignat*}{5}
+	\varphi	\:	:&\quad		\Z	/	(7)			&	&	\to			\Z_{(7)}	/	(7)\Z_{(7)}	\\		
+					\:	;&\quad		\overline{a}	&	&	\mapsto	\tilde{a}
+\end{alignat*}
+が定義できる．$\displaystyle	\overline{\left( \frac{1}{a} \right) } $の定義可否について考察してみたい．
+$\overline{a}	\in	\Z	/	(7)$が零元でなければ，$a	\not\in	(7)$であり，
+\begin{list}{}{}
+	\item	・$\quad	\displaystyle	\frac{1}{a}	\in	\Z_{(7)}	=	\left\{\frac{a}{s}	\:	\bigg|	\:	a	\in	Z,	s\not\in	(7)	\right\}$,
+	\item	・$\quad	\displaystyle	a	=	\frac{a}{1}	\not\in	(7)	\Z_{(7)}	=	\left\{	\frac{a}{s}	\:	\bigg|	\:	a	\in	(7)	,	s	\not\in	(7)\right\}$	$\quad	(	a$は零でない)，
+	\item	・$\quad	\displaystyle	\frac{1}{a}	\not\in	(7)	\Z_{(7)}$	$\quad	(\because 1 \not\in(7)$)	$\quad	(	\displaystyle	\frac{1}{a}$も零でない).
+\end{list}
+であることがわかる．これから，$a	\in	\Z_{(7)}$の属する$(7)	\Z_{(7)}$を法とする剰余類を$\overline{a}$，
+$\displaystyle	\frac{1}{a}	\in	\Z_{(7)}$の属する
+$(7)	\Z_{(7)}$を法とする剰余類を$\displaystyle	\overline{\left(	\frac{1}{a}	\right)}$と記すと，$\Z_{(7)}	/	(7)\Z_{(7)}$では
+\[
+	\overline{a}	\cdot	\overline{\left(	\frac{1}{a}	\right)}	=	\overline{1}	\qquad	\text{($\varphi$による同一視)}
+\]
+であることがわかる．さらに一般に$\displaystyle	\frac{b}{a}	\in	\Z_{(7)},	\frac{b}{a}	\not\in	(7)	\Z_{(7)}$であれば，$a,b	\not\in	(7)$
+であることがわかり，
+$\displaystyle	\frac{a}{b}	\in	\Z_{(7)}$であることが分かる．したがって$\Z_{(7)}	/	(7)	\Z_{(7)}$では，
+\[
+	\overline{\left(	\frac{b}{a}	\right)}	\cdot
+	\overline{\left(	\frac{a}{b}	\right)}	=	\overline{1}	\quad	\text{(体である)}
+\]
+であり，$(7)\Z_{(7)}$は$\Z_{(7)}$の極大イデアルであることが分かる（定理 A.4)．また，
+\[
+	\overline{	\left(	\frac{b}{a}	\right)}	=	\overline{b}	\cdot	\overline{	\left(	\frac{1}{a}	\right)	}
+\]
+と考えられるので，$\Z_{(7)}	/	(7)	\Z_{(7)}$は整域$\Z	/	(7)$の商体であることも分かる．
+
+(ⅱ)
+整域$R$の素イデアル$\mathfrak{p}$に対して
+\[
+	S=R-\mathfrak{p}=\{a	\in	R	\:|\:	a	\notin	\mathfrak{p}	\}
+\]
+とおく．$0	\in	\mathfrak{p}$であるので，$0	\notin	S$，かつ$1	\notin	\mathfrak{p}$
+であるので$1	\in	S$である．また$a	\in	S,b	\in	S$であれば，
+$a	\in	\mathfrak{p},b	\notin	\mathfrak{p}$であり，$\mathfrak{p}$が素イデアルであるので
+$ab	\notin	\mathfrak{p}$である．したがって
+\[
+	ab	\in	S
+\]
+となり，$S$は乗法的に閉じた集合になる．$S^{-1}R$を$R_\mathfrak{p}$と記す．
+$R	\subset	R_\mathfrak{p}$と考える．$\mathfrak{p}$の元から生成される$R_\mathfrak{p}$
+のイデアルを$\mathfrak{p}R_\mathfrak{p}$と記すと
+\[
+	\mathfrak{p}R_\mathfrak{p}
+		=	\left\{
+				\frac{s}{a}	\:	|	\:
+					s	\in	\mathfrak{p},	a	\notin	\mathfrak{p}
+			\right\}
+\]
+であることが分かる．また
+\[
+	\mathfrak{p}R_\mathfrak{p}	\cap	R	=	\mathfrak{p}
+\]
+であることも容易に分かる．このことから，$a	\in	R$
+の属する$\mathfrak{p}$を法とする剰余類を
+$a$の属する$\mathfrak{p}R_\mathfrak{p}$を法とする
+剰余類に対応させることによって
+自然な写像
+\[
+	\varphi	:	R/\mathfrak{p}	\longrightarrow	R_\mathfrak{p}/\mathfrak{p}R_\mathfrak{p}
+\]
+が定義できる．$\overline{a}	\in	R/\mathfrak{p}$が零元でなければ
+$a	\notin	\mathfrak{p}$であり，
+したがって$\displaystyle	\frac{1}{a}	\in	R_\mathfrak{p}$
+であり，$a	\notin	\mathfrak{p}R_\mathfrak{p}$であることがわかる．これから，
+$a$の属する$\mathfrak{p}R_\mathfrak{p}$を法とする剰余類を$\overline{a}$,
+$\displaystyle	\frac{1}{a}$の属する$\mathfrak{p}R_\mathfrak{p}$を
+法とする剰余類を$\displaystyle	\overline{\frac{1}{a}}$と記すと，
+$R_\mathfrak{p}/\mathfrak{p}R_\mathfrak{p}$と記すと，
+$R_\mathfrak{p}/\mathfrak{p}R_\mathfrak{p}$では
+\[
+	\overline{a}\cdot\overline{\frac{1}{a}}=\overline{1}
+\]
+であることが分かる．
+さらに一般に$\displaystyle	\frac{b}{a}	\in	R_\mathfrak{p}.
+\frac{b}{a}	\notin	\mathfrak{p}R_\mathfrak{p}
+$であれば，$a	\notin	\mathfrak{p},b	\notin	\mathfrak{p}$
+であり，$\displaystyle{a}{b}	\in	R_\mathfrak{p}$であることが分かる．
+したがって$R_\mathfrak{p}/\mathfrak{p}R_\mathfrak{p}$では
+\[
+	\overline{\left(\frac{b}{a}\right)}\cdot
+	\overline{\left(\frac{b}{a}\right)}	=	\overline{1}
+\]
+であり，$\mathfrak{p}R_\mathfrak{p}$は$R_\mathfrak{p}$の極大イデアルであることが
+分かる．また
+\[
+	\overline{\left(
+							\frac{b}{a}
+						\right)
+					}
+	=
+	\overline{b}
+		\cdot
+	\overline{\left(
+							\frac{1}{a}
+						\right)
+					}
+\]
+と考えられるので$R_\mathfrak{p}/\mathfrak{p}R_\mathfrak{p}$は
+整域$R/\mathfrak{p}$の商体であることも分かる．
+
+$R_\mathfrak{p}$の極大イデアルは$\mathfrak{p}R_\mathfrak{p}$のみであり，
+したがって$R_\mathfrak{p}$は局所環であることが分かる．
+$R_\mathfrak{p}$のイデアル$J	\ne	R_\mathfrak{p}$を考える．もし$J$
+が$\mathfrak{p}R_\mathfrak{p}$に含まれなければ，
+\[
+	\frac{b}{a}	\in	J,	\frac{b}{a}	\notin	\mathfrak{p}R_\mathfrak{p}
+\]
+である元$\displaystyle	\frac{b}{a}$が存在する．
+$\frac{b}{a}	\notin	\mathfrak{p}R_\mathfrak{p}$より
+\[
+	a	\in	\mathfrak{p},b	\notin	\mathfrak{p}
+\]
+であり，したがって
+\[
+	\frac{a}{b}	\in	R_\mathfrak{p}
+\]
+であることが分かる．$J$は$R_\mathfrak{p}$のイデアルであるので
+\[
+	\frac{a}{b}\cdot\frac{b}{a}=1	\in	J
+\]
+となり$J=R_\mathfrak{p}$となって仮定に反する．したがって$J	\subset	\mathfrak{p}R_\mathfrak{p}$
+であり，これより$\mathfrak{p}R_\mathfrak{p}$は$R_\mathfrak{p}$のただ一つの
+極大イデアルであることが分かる．
+$R=K[x]$,$\mathfrak{p}=(x-a)$のときは，
+\[
+	R_\mathfrak{p}=	\left\{
+		\frac{g(x)}{f(x)}	\:	\bigg|	\:	f(a)	\ne	0,f(x),g(x)	\in	K[x]
+									\right\}
+\]
+であり，
+\[
+	\mathfrak{p}R_\mathfrak{p}=	\left\{
+		\frac{(x-a)h(x)}{f(x)}	\:	\bigg|	\:	f(a)	\ne	0,f(x),h(x)	\in	K[x]
+															\right\}
+\]
+であることが分かる．
+	$R=K[x,y],\mathfrak{p}=(y^2-x^3)$のときは
+\[
+	R_\mathfrak{p}=	\left\{
+		\frac{g(x,y)}{f(x,y)}	\:	\bigg|	\:	f(x,y)	\text{は}	y^2-x^3
+																					\text{で割り切れない，}	f,g	\in	K[x,y]
+									\right\}
+\]
+である．$R_\mathfrak{p}$から$K(t)$への写像$\psi$を
+\[
+	\psi	:	R_\mathfrak{p}				\longrightarrow	K(t)
+					;	\frac{g(x,y)}{f(x,y)}	\mapsto	\frac{g(t^2,t^3)}{f(t^2,t^3)}
+\]
+と定義すると，これは準同型写像であり
+\[
+	\Ker	\psi	=	\mathfrak{p}R_\mathfrak{p}
+\]
+であることを示すことができる．これより$R_\mathfrak{p}/\mathfrak{p}R_\mathfrak{p}$は
+体として同型であることが分かる．
+\□
+
+最後に他の大切な局所環を挙げておこう．
+
+\例{A.20}（形式的ベキ級数環）
+
+体$K$を係数とする形式的ベキ級数（formal	power	series）
+\[
+	f(x)	=	\sum_{j=0}^\infty	a_jx^j,	a_j	\in	K
+\]
+の全体を$K[[x]]$と記す．形式的ベキ級数の和と積とは多項式の場合の自然な拡張として定義することが
+でき，$K[[x]]$は可換環になる．形式的ベキ級数$f(x)$で$a_0	\ne	0$であれば
+\[
+	f(x)g(x)	=	1
+\]
+を満たす形式的ベキ級数$g(x)$が存在する．
+\[
+	g(x)	=	\sum_{j=0}^\infty	b_j	x^j
+\]
+とおくと，$f(x)g(x)=1$は，条件式
+\begin{align*}
+		&a_0b_0=1								\\
+		&a_0b_1+a_1b_0=0				\\
+		&a_0b_2+a_1b_1a_2b_0=0	\\
+		&	\cdots\cdots					\\
+		&	a_0b_k+a_1b_{k-1}+a_2b_{k-2}+\cdots+a_kb_0	=	0	\\
+		&	\cdots\cdots
+\end{align*}
+で書き表される．$a_0	\ne	0$であるので，$\displaystyle	b_0=\frac{1}{a_0}$，
+$b_1=-a_1/a_0^2,\cdots$と$b_2$を$a_0,a_1,\cdots,a_k$を使って表示することができ，
+$g(x)$が一意的に定まることが分かる．このことを使うと$K[[x]]$の極大イデアルは
+$x$より生成されるイデアル$(x)$に他ならないことが分かる．あるいは
+\[
+	(x)=\left\{
+				\sum_{j=1}^\infty	a_jx^j	\in	K[[x]]
+			\right\}
+\]
+と書き表すこともできる．すべての形式的ベキ級数$h(x)$は
+\[
+	h(x)=x^m	\sum_{j=0}^\infty	c_j	x^j,	c_0	\ne	0
+\]
+の形に書くことができ，$\sum_{j=0}^\infty	c_j	x^j$は
+$K[[x]]$内に逆元をもつ．すると$K[[x]]$の商体では
+\[
+	\frac{1}{h(x)}	=	\frac{1}{x^m}
+										\left(
+											\frac{1}{c_0}-\frac{c_1}{c_0^2}x+\cdots
+										\right)
+\]
+と書くことができる．このことから$K[[x]]$の商体は有限個の負ベキの
+項を含んだ形式的ベキ級数の全体
+\[
+	K((x))	=	\left\{
+							\sum_{j=-\infty}^\infty	a_j	x^j	\:	|	a_j	\in	K
+						\right\}
+\]
+に他ならないことが分かる．$K((x))$の格言は形式的
+Laurent級数と呼ばれる．
+
+同様に多変数の形式的ベキ級数環$K[[x_1,x_2,\cdots,x_n]]$も局所環
+であることが分かる．
+\□
